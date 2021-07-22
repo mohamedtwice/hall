@@ -22,7 +22,7 @@ const theme = extendTheme({
         minHeight: '100vh',
       },
       body: {
-        paddingBottom: '3rem',
+        paddingBottom: '2rem',
       },
     }),
   },
