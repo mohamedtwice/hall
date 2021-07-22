@@ -29,25 +29,10 @@ export default function Home({ honorees }) {
             {honorees.map((honoree, index) => {
               const hId = honoree.id
 
- if(!honoree.properties?.Profile_Image?.rich_text.length) {
-   return (
-                 <a index={index} href={`/honorees/${hId}`}>
-                  <Box borderWidth="1px" borderRadius="lg" overflow="hidden">
-                    <Flex direction="column" justify="center" p={3}>
-                        <Heading as="h3" size="md" alignSelf="center">
-                              {honoree.properties.Name.title[0].text?.content}
-                        </Heading>
-                        <Text alignSelf="start" fontSize="sm">{honoree.properties.Year.number}</Text>
-                    </Flex>
-                  </Box>
-                  </a>
-              )
-            }
-
               return (
                  <a index={index} href={`/honorees/${hId}`}>
                   <Box borderWidth="1px" borderRadius="lg" overflow="hidden">
-                       <Image src={honoree.properties?.Profile_Image?.rich_text[0]?.href} alt={honoree.properties.Name.title[0].text?.content} />
+                     
                     <Flex direction="column" justify="center" p={3}>
                         <Heading as="h3" size="md" alignSelf="center">
                               {honoree.properties.Name.title[0].text?.content}
