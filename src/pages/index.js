@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import {NextLink, Link} from 'next/link';
 import { getHonorees } from '@/lib/notion';
 import { Text, Button, Box, Container, Flex, Heading, SimpleGrid } from '@chakra-ui/react';
