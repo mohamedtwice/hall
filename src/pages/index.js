@@ -25,7 +25,7 @@ export default function Home({ honorees }) {
       <Container maxW="container.lg" pb={16}>
         <Box mb={[12, 16]}>
 
-            <SimpleGrid minChildWidth="120px" spacing="40px">
+            <SimpleGrid minChildWidth="200px" spacing="40px">
             {honorees.map((honoree, index) => {
               const hId = honoree.id
 
