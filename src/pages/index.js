@@ -30,7 +30,7 @@ export default function Home({ honorees }) {
               const hId = honoree.id
 
               return (
-                 <a index={index} href={`/honorees/${hId}`}>
+                 <a key={hId} href={`/honorees/${hId}`}>
                   <Box borderWidth="1px" borderRadius="lg" overflow="hidden">
                      
                     <Flex direction="column" justify="center" p={3}>
