@@ -89,7 +89,7 @@ console.log(image)
 
       {/* <Container maxW="container.md" px={[5, 6, 16]} pb={16}> */}
       <Container maxW="container.lg">
-        <SimpleGrid columns={2} spacing={10}>
+        <SimpleGrid columns={[1, 2, 2]} spacing="40px">
   <Box d="flex" flexDirection="column" alignItems="baseline">
 
         <Heading
