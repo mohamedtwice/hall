@@ -42,6 +42,24 @@ export const getHonoreesByYear = async (year) => {
   return { data: honorees.results };
 };
 
+export const getHonoreesBySport = async (sport) => {
+  const honorees = await notion.databases.query({
+    database_id: databaseId,
+    filter: {
+      or: [
+        {
+          property: 'Sport',
+          select: {
+            equals: sport,
+          },
+        },
+      ],
+    },
+  });
+
+  return { data: honorees.results };
+};
+
 export const getPostById = async (postId) => {
   const post = await notion.pages.retrieve({ page_id: postId });
   const blocks = await notion.blocks.children.list({ block_id: postId });
