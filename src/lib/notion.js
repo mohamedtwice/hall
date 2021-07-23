@@ -23,3 +23,28 @@ export const getHonoreeById = async (pageId) => {
 
   return { pageInfo: post, blocks: blocks.results };
 };
+
+export const getHonoreesByYear = async (year) => {
+  const honorees = await notion.databases.query({
+    database_id: databaseId,
+    filter: {
+      or: [
+        {
+          property: 'Year',
+          select: {
+            equals: year,
+          },
+        },
+      ],
+    },
+  });
+
+  return { data: honorees.results };
+};
+
+export const getPostById = async (postId) => {
+  const post = await notion.pages.retrieve({ page_id: postId });
+  const blocks = await notion.blocks.children.list({ block_id: postId });
+
+  return { pageInfo: post, blocks: blocks.results };
+};

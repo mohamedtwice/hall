@@ -15,7 +15,7 @@ const image = pageInfo.properties?.Cover_Image?.rich_text[0]?.href;
 const profileImage = pageInfo.properties?.Profile_Image?.rich_text[0]?.href;
   const titleContent = pageInfo.properties.Name.title[0].text.content;
   const sport = pageInfo.properties.Sport.multi_select[0]?.name;
-  const year = pageInfo.properties.Year?.number;
+  const year = pageInfo.properties.Year?.select.name;
   // const summaryContent = summary.rich_text[0].text.content;
   // const slugContent = slug.rich_text[0].plain_text;
 console.log(image)
@@ -143,7 +143,7 @@ export async function getStaticPaths() {
   const paths = honorees.data.map((honoree) => ({
     params: { id: honoree.id },
   }));
-    console.log(paths)
+    // console.log(paths)
   return { paths, fallback: 'blocking' };
 }
 
