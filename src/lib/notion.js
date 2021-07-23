@@ -46,7 +46,7 @@ export const getHonoreesBySport = async (sport) => {
   const honorees = await notion.databases.query({
     database_id: databaseId,
     filter: {
-      or: [
+      and: [
         {
           property: 'Sport',
           select: {

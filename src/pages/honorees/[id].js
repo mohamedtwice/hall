@@ -14,11 +14,11 @@ export default function Post({ honoree }) {
 const image = pageInfo.properties?.Cover_Image?.rich_text[0]?.href;
 const profileImage = pageInfo.properties?.Profile_Image?.rich_text[0]?.href;
   const titleContent = pageInfo.properties.Name.title[0].text.content;
-  const sport = pageInfo.properties.Sport.multi_select[0]?.name;
+  const sport = pageInfo.properties.Sport.select.name;
   const year = pageInfo.properties.Year?.select.name;
   // const summaryContent = summary.rich_text[0].text.content;
   // const slugContent = slug.rich_text[0].plain_text;
-console.log(image)
+console.log(sport)
   const renderFeaturedImage = () => {
     if (!image) {
       return null;
@@ -101,15 +101,28 @@ console.log(image)
           {titleContent}
         </Heading>
 
-         <Heading
+
+          {year &&
+              <Heading
+                  as="h4"
+                  mb={[4]}
+                  alignSelf="start"
+                  fontSize={['l', 'xl', '2xl']}
+              >
+               <b>Inducted:</b> {year}
+              </Heading>
+          }
+
+      {sport &&
+      <Heading
           as="h4"
           mb={[4]}
           alignSelf="start"
           fontSize={['l', 'xl', '2xl']}
-        >
-          {sport && <span>{sport} | </span>}
-          {year && <span>{year}</span>}
-        </Heading>
+      >
+          Sport: {sport}
+      </Heading>
+      }
 
         <Blocks blocks={blocks} />
         </Box>

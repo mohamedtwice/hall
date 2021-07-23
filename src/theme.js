@@ -24,6 +24,18 @@ const theme = extendTheme({
       body: {
         paddingBottom: '2rem',
       },
+      '.bgWrap': {
+        overflow: 'hidden',
+        zIndex: '-1',
+  },
+  '.bgText': {
+        margin: '0',
+        fontSize: '2rem',
+    lineHeight: '3rem',
+    textAlign: 'center',
+    paddingTop: '40vh',
+    textShadow: '1px 1px 1px #3c5c5e',
+    },
     }),
   },
 });

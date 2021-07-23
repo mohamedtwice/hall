@@ -9,6 +9,7 @@ import Blocks from '@/components/blocks';
 
 export default function Year({ honorees, sport }) {
     console.log(honorees)
+    console.log(sport)
     // const { pageInfo, blocks } = honorees;
     // const { entry, slug, summary, image, social_image } = pageInfo.properties;
     // const image = pageInfo.properties?.Cover_Image?.rich_text[0]?.href;
@@ -115,7 +116,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     // console.log(params)
-    const sport = params.sport;
+    const sport = params.sport.toString();
     const honorees = await getHonoreesBySport(sport);
     console.log(honorees)
     console.log(sport)
