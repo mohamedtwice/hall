@@ -24,6 +24,24 @@ export const getHonoreeById = async (pageId) => {
   return { pageInfo: post, blocks: blocks.results };
 };
 
+export const getHonoreesBySlug = async (slug) => {
+  const honorees = await notion.databases.query({
+    database_id: databaseId,
+    filter: {
+      or: [
+        {
+          property: 'slug',
+          text: {
+            equals: slug,
+          },
+        },
+      ],
+    },
+  });
+
+  return { data: honorees.results };
+};
+
 export const getHonoreesByYear = async (year) => {
   const honorees = await notion.databases.query({
     database_id: databaseId,
@@ -46,7 +64,7 @@ export const getHonoreesBySport = async (sport) => {
   const honorees = await notion.databases.query({
     database_id: databaseId,
     filter: {
-      and: [
+      or: [
         {
           property: 'Sport',
           select: {
@@ -60,9 +78,9 @@ export const getHonoreesBySport = async (sport) => {
   return { data: honorees.results };
 };
 
+
 export const getPostById = async (postId) => {
   const post = await notion.pages.retrieve({ page_id: postId });
   const blocks = await notion.blocks.children.list({ block_id: postId });
-
   return { pageInfo: post, blocks: blocks.results };
 };

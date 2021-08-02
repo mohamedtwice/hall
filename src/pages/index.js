@@ -51,38 +51,35 @@ export default function Home({ honorees }) {
 
             <SimpleGrid minChildWidth="250px" spacing="40px">
             {honorees.map((honoree, index) => {
-              const hId = honoree.id
+              const hId = honoree.id;
+              const slug = honoree.properties.slug.rich_text[0].text.content;
               const sport = honoree.properties.Sport.select.name;
               const year = honoree.properties.Year?.select.name;
               const image = honoree.properties?.Profile_Image?.rich_text[0]?.href;
 
               return (
-                 <a key={hId} href={`/honorees/${hId}`}>
+                <a key={hId} href={`/honorees/${slug}`}>
                   <Box borderWidth="1px" borderRadius="lg" overflow="hidden">
                     <Flex direction="column" justify="center" h={150} p={3}>
-                        <Heading as="h3" size="md" alignSelf="center" mb={[2]} style={{textAlign: "censter"}}>
-                              {honoree.properties.Name.title[0].text?.content}
-                        </Heading>
-
-
                       <Heading
-                          as="h4"
-                          size="sm"
-                          mb={[4]}
-                          alignSelf="center"
+                        as="h3"
+                        size="md"
+                        alignSelf="center"
+                        mb={[2]}
+                        style={{ textAlign: 'censter' }}
                       >
-                      {year &&
-                       `${year} | `
-                      }
+                        {honoree.properties.Name.title[0].text?.content}
+                      </Heading>
 
-                      {sport &&
-                        `${sport}`
-                      }
+                      <Heading as="h4" size="sm" mb={[4]} alignSelf="center">
+                        {year && `${year} | `}
+
+                        {sport && `${sport}`}
                       </Heading>
                     </Flex>
                   </Box>
-                  </a>
-              )
+                </a>
+              );
             })}
 
         </SimpleGrid>

@@ -116,10 +116,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     // console.log(params)
-    const sport = params.sport.toString();
+    const sport = params.sport;
     const honorees = await getHonoreesBySport(sport);
-    console.log(honorees)
-    console.log(sport)
+    // console.log(honorees)
+    // console.log(sport)
 
     return { props: { honorees, sport }, revalidate: 30 };
 }
