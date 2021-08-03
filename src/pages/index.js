@@ -54,17 +54,25 @@ export default function Home({ honorees }) {
               const hId = honoree.id;
               const slug = honoree.properties.slug.rich_text[0].text.content;
               const sport = honoree.properties.Sport.select.name;
+              const sportColor = honoree.properties.Sport.select?.color;
               const year = honoree.properties.Year?.select.name;
+              const yearColor = honoree.properties.Year?.select?.color;
               const image = honoree.properties?.Profile_Image?.rich_text[0]?.href;
 
               return (
                 <a key={hId} href={`/honorees/${hId}`}>
-                  <Box borderWidth="1px" borderRadius="lg" overflow="hidden">
-                    <Flex direction="column" justify="center" h={450} p={3}>
+                  <Box borderWidth="0px" overflow="hidden">
+                    <Flex
+                      direction="column"
+                      justify="center"
+                      h={450}
+                      p={0}
+                      bg="#fbeeca"
+                    >
                       {image && (
                         <AspectRatio
-                          ratio={16 / 9}
-                          mb={[4, 8]}
+                          ratio={4 / 3}
+                          mb={[2, 4]}
                           overflow="hidden"
                           borderRadius="lg"
                           height={375}
@@ -79,19 +87,43 @@ export default function Home({ honorees }) {
                       )}
                       <Heading
                         as="h3"
-                        size="md"
+                        size="lg"
                         alignSelf="center"
-                        mb={[2]}
-                        style={{ textAlign: 'censter' }}
+                        mt={[2]}
+                        mb={[4]}
+                        w={`75%`}
+                        textAlign="center"
+                        color="#241c15"
                       >
                         {honoree.properties.Name.title[0].text?.content}
                       </Heading>
 
-                      <Heading as="h4" size="sm" mb={[4]} alignSelf="center">
-                        {year && `${year} | `}
-
-                        {sport && `${sport}`}
-                      </Heading>
+                      <Box d="flex" justifyContent="center">
+                        <Heading as="h4" size="sm" mb={[8]} alignSelf="center">
+                          <a
+                            href={`/year/${year}`}
+                            style={{
+                              background: 'gold',
+                              padding: '3px 8px',
+                              color: 'rebeccapurple',
+                            }}
+                          >
+                            {year}
+                          </a>
+                        </Heading>
+                        <Heading as="h4" size="sm" mb={[8]} alignSelf="center">
+                          <a
+                            href={`/year/${sport}`}
+                            style={{
+                              background: `${sportColor}`,
+                              padding: '3px 8px',
+                              color: 'white',
+                            }}
+                          >
+                            {sport}
+                          </a>
+                        </Heading>
+                      </Box>
                     </Flex>
                   </Box>
                 </a>

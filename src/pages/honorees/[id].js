@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { getHonorees, getHonoreeById } from '@/lib/notion';
-import { AspectRatio, Container, Heading, SimpleGrid, Box, color, Link } from '@chakra-ui/react';
+import { AspectRatio, Container, Heading, SimpleGrid, Box, color, Link, Text } from '@chakra-ui/react';
 import { socialImage, url } from '@/lib/config';
 
 import MainLayout from '@/layouts/MainLayout';
@@ -15,8 +15,11 @@ const image = pageInfo.properties?.Cover_Image?.rich_text[0]?.href;
 const profileImage = pageInfo.properties?.Profile_Image?.rich_text[0]?.href;
   const titleContent = pageInfo.properties.Name.title[0].text.content;
   const sport = pageInfo.properties.Sport?.select?.name;
+  const sportColor = pageInfo.properties.Sport?.select?.color;
   const year = pageInfo.properties.Year?.select?.name;
+  const yearColor = pageInfo.properties.Year?.select?.color;
   const college = pageInfo.properties.College?.select?.name;
+  const collegeColor = pageInfo.properties.College?.select?.color;
   const position = pageInfo.properties.Position?.rich_text[0]?.text?.content;
   // const summaryContent = summary.rich_text[0].text?.content;
   // const slugContent = slug.rich_text[0].plain_text;
@@ -101,56 +104,64 @@ console.log(sport)
               {titleContent}
             </Heading>
 
-            {year && (
-              <Heading
-                as="h4"
-                mb={[4]}
-                alignSelf="start"
-                fontSize={['l', 'xl', '2xl']}
-              >
-                <b>Inducted:</b>
+            <Box d="flex" justifyContent="center" alignItems="center" mb={1}>
+              <Text fontSize={['l', 'xl', '2xl']}>Inducted:</Text>
+              <Text>
                 <Link
-                  fontSize={['l', 'xl']}
                   href={`/year/${year}`}
                   className={`${honoree.pageInfo.properties.Year.select.color}-color`}
-                  p={3}
+                  ml={4}
+                  py={0}
+                  px={0}
+                  fontWeight="400"
+                  fontSize={['xl', '2xl', '3xl']}
+                  color={yearColor}
                 >
-                  {year}
+                  <b>{year}</b>
                 </Link>
-              </Heading>
-            )}
+              </Text>
+            </Box>
 
-            {sport && (
-              <Heading
-                as="h4"
-                mb={[4]}
-                alignSelf="start"
-                fontSize={['l', 'xl', '2xl']}
-              >
-                Sport: {sport}
-              </Heading>
-            )}
+            <Box d="flex" justifyContent="center" alignItems="center" mb={1}>
+              <Text fontSize={['l', 'xl', '2xl']}>Sport:</Text>
+              <Text>
+                <Link
+                  href={`/year/${year}`}
+                  className={`${honoree.pageInfo.properties.Year.select.color}-color`}
+                  ml={4}
+                  py={0}
+                  px={0}
+                  fontWeight="400"
+                  fontSize={['xl', '2xl', '3xl']}
+                  color={sportColor}
+                >
+                  <b>{sport}</b>
+                </Link>
+              </Text>
+            </Box>
 
             {college && (
-              <Heading
-                as="h4"
-                mb={[4]}
-                alignSelf="start"
-                fontSize={['l', 'xl', '2xl']}
-              >
-                College: {college}
-              </Heading>
+              <Box d="flex" justifyContent="center" alignItems="center" mb={1}>
+                <Text fontSize={['l', 'xl', '2xl']}>College:</Text>
+                <Text
+                  fontSize={['xl', '2xl', '3xl']}
+                  ml={4}
+                  py={0}
+                  px={0}
+                  color={collegeColor}
+                >
+                  <b>{college}</b>
+                </Text>
+              </Box>
             )}
 
             {position && (
-              <Heading
-                as="h4"
-                mb={[4]}
-                alignSelf="start"
-                fontSize={['l', 'xl', '2xl']}
-              >
-                Position: {position}
-              </Heading>
+              <Box d="flex" justifyContent="center" alignItems="center" mb={1}>
+                <Text fontSize={['l', 'xl', '2xl']}>Position:</Text>
+                <Text fontSize={['xl', '2xl', '3xl']} ml={4} py={0} px={0}>
+                  <b>{position}</b>
+                </Text>
+              </Box>
             )}
 
             <Blocks blocks={blocks} />

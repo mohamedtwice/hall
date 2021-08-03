@@ -11,8 +11,8 @@ const theme = extendTheme({
     primaryLight: '#DADADA',
   },
   fonts: {
-    heading: '"Montserrat", sans-serif',
-    body: '"Noto Serif", serif',
+    heading: 'brandon-grotesque, sans-serif',
+    body: 'mr-eaves-modern, sans-serif',
   },
   styles: {
     global: (props) => ({
@@ -27,15 +27,18 @@ const theme = extendTheme({
       '.bgWrap': {
         overflow: 'hidden',
         zIndex: '-1',
-  },
-  '.bgText': {
+      },
+      'h1,h2,h3,h4,h5': {
+        fontWeight: '900',
+      },
+      '.bgText': {
         margin: '0',
         fontSize: '2rem',
-    lineHeight: '3rem',
-    textAlign: 'center',
-    paddingTop: '40vh',
-    textShadow: '1px 1px 1px #3c5c5e',
-    },
+        lineHeight: '3rem',
+        textAlign: 'center',
+        paddingTop: '40vh',
+        textShadow: '1px 1px 1px #3c5c5e',
+      },
     }),
   },
 });

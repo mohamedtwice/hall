@@ -54,6 +54,7 @@ function MyApp({ Component, pageProps }) {
           sizes="16x16"
           href="/favicons/favicon-16x16.png"
         />
+        <link rel="stylesheet" href="https://use.typekit.net/qqw4tfs.css" />
       </Head>
       <Component {...pageProps} />
     </ChakraProvider>
