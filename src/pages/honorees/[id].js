@@ -67,7 +67,6 @@ console.log(sport)
           ratio={16 / 9}
           mb={[4, 8]}
           overflow="hidden"
-          borderRadius="lg"
           height={450}
         >
           <Image
@@ -166,13 +165,12 @@ console.log(sport)
 
             <Blocks blocks={blocks} />
           </Box>
-          <Box bg="black" height="">
+          <Box height="">
             {profileImage && (
               <AspectRatio
                 ratio={16 / 9}
                 mb={[4, 8]}
                 overflow="hidden"
-                borderRadius="lg"
                 height={400}
               >
                 <Image
