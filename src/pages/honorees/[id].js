@@ -17,8 +17,8 @@ const profileImage = pageInfo.properties?.Profile_Image?.rich_text[0]?.href;
   const sport = pageInfo.properties.Sport?.select.name;
   const year = pageInfo.properties.Year?.select.name;
   const college = pageInfo.properties.College?.select.name;
-  const position = pageInfo.properties.Position?.rich_text[0].text.content;
-  // const summaryContent = summary.rich_text[0].text.content;
+  const position = pageInfo.properties.Position?.rich_text[0].text?.content;
+  // const summaryContent = summary.rich_text[0].text?.content;
   // const slugContent = slug.rich_text[0].plain_text;
 console.log(sport)
   const renderFeaturedImage = () => {
