@@ -96,9 +96,10 @@ console.log(sport)
           <Box d="flex" flexDirection="column" alignItems="baseline">
             <Heading
               as="h1"
-              mb={[4]}
+              mt={[2,4,6]}
+              mb={[4,]}
               alignSelf="start"
-              fontSize={['2xl', '4xl', '5xl']}
+              fontSize={['3xl', '5xl', '7xl']}
             >
               {titleContent}
             </Heading>
