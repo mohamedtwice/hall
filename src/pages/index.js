@@ -58,9 +58,25 @@ export default function Home({ honorees }) {
               const image = honoree.properties?.Profile_Image?.rich_text[0]?.href;
 
               return (
-                <a key={hId} href={`/honorees/${slug}`}>
+                <a key={hId} href={`/honorees/${hId}`}>
                   <Box borderWidth="1px" borderRadius="lg" overflow="hidden">
-                    <Flex direction="column" justify="center" h={150} p={3}>
+                    <Flex direction="column" justify="center" h={450} p={3}>
+                      {image && (
+                        <AspectRatio
+                          ratio={16 / 9}
+                          mb={[4, 8]}
+                          overflow="hidden"
+                          borderRadius="lg"
+                          height={375}
+                        >
+                          <Image
+                            src={image}
+                            alt={honoree.properties.Name.title[0].text?.content}
+                            layout="fill"
+                            objectFit="cover"
+                          />
+                        </AspectRatio>
+                      )}
                       <Heading
                         as="h3"
                         size="md"

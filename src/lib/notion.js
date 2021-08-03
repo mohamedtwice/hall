@@ -25,7 +25,7 @@ export const getHonoreeById = async (pageId) => {
 };
 
 export const getHonoreesBySlug = async (slug) => {
-  const honorees = await notion.databases.query({
+  const honoree = await notion.databases.query({
     database_id: databaseId,
     filter: {
       or: [
@@ -39,7 +39,7 @@ export const getHonoreesBySlug = async (slug) => {
     },
   });
 
-  return { data: honorees.results };
+  return { data: honoree };
 };
 
 export const getHonoreesByYear = async (year) => {
