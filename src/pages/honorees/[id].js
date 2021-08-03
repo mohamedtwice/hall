@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { getHonorees, getHonoreeById } from '@/lib/notion';
-import { AspectRatio, Container, Heading, SimpleGrid, Box } from '@chakra-ui/react';
+import { AspectRatio, Container, Heading, SimpleGrid, Box, color, Link } from '@chakra-ui/react';
 import { socialImage, url } from '@/lib/config';
 
 import MainLayout from '@/layouts/MainLayout';
@@ -65,13 +65,14 @@ console.log(sport)
           mb={[4, 8]}
           overflow="hidden"
           borderRadius="lg"
-          height={375}
+          height={450}
         >
           <Image
             src={image}
             alt={titleContent}
             layout="fill"
             objectFit="cover"
+            objectPosition="center center"
           />
         </AspectRatio>
       )}
@@ -107,7 +108,15 @@ console.log(sport)
                 alignSelf="start"
                 fontSize={['l', 'xl', '2xl']}
               >
-                <b>Inducted:</b> {year}
+                <b>Inducted:</b>
+                <Link
+                  fontSize={['l', 'xl']}
+                  href={`/year/${year}`}
+                  className={`${honoree.pageInfo.properties.Year.select.color}-color`}
+                  p={3}
+                >
+                  {year}
+                </Link>
               </Heading>
             )}
 
