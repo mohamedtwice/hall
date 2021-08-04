@@ -45,9 +45,9 @@ export default function Year({ honorees, year }) {
 
 
     return (
-        <MainLayout>
-            <Head>
-                {/* <title>{titleContent}</title>
+      <MainLayout>
+        <Head>
+          {/* <title>{titleContent}</title>
         <meta name="description" content={summaryContent} />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={titleContent} />
@@ -57,64 +57,119 @@ export default function Year({ honorees, year }) {
           property="og:image"
           content={social_image ? social_image.url : socialImage}
         /> */}
-            </Head>
+        </Head>
 
-            <Container maxW="container.lg">
-            <Heading
-                as="h1"
-                mb={[4]}
-                alignSelf="start"
-                fontSize={['2xl', '3xl', '4xl']}
-            >
-                {year} Inductees
-            </Heading>
-            </Container>
+        <Container maxW="container.lg">
+          <Heading
+            as="h1"
+            mb={[4]}
+            alignSelf="start"
+            fontSize={['2xl', '3xl', '4xl']}
+          >
+            {year} Inductees
+          </Heading>
+        </Container>
 
-            <Container maxW="container.lg" pb={16}>
-                <Box mb={[12, 16]}>
-                    <SimpleGrid minChildWidth="150px" spacing="40px">
-                        {honorees.data.map((honoree, index) => {
-                            const hId = honoree.id
-                            // const hasSport = honoree.properties.Sport.multi_select.length;
-                            // const sportArray = honoree.properties.Sport.multi_select;
-                            // // const sportOne = honoree.properties.Sport.multi_select[0].name;
-                            // console.log(sportArray)
-                            // const renderSportsArray = () => {
-                            //     if (hasSport === 0 ) {
-                            //         return null;
-                            //     }
-                            //
-                            //     return (
-                            //         // {sportArray.map((sport, index) => (
-                            //         //         <Text alignSelf="start" fontSize="sm" key={sport.id}>
-                            //         //             {sport.name}
-                            //         //         </Text>
-                            //         //     ))}
-                            //     );
-                            // };
-                            return (
-                                <a key={hId} href={`/honorees/${hId}`}>
-                                    <Box borderWidth="1px" borderRadius="lg" overflow="hidden">
+        <Container maxW="container.lg" pb={16}>
+          <Box mb={[12, 16]}>
+            <SimpleGrid minChildWidth="250px" spacing="40px">
+              {honorees.data.map((honoree, index) => {
+                const hId = honoree.id;
+                const slug =
+                  honoree.properties.slug?.rich_text[0]?.text?.content;
+                const sport = honoree.properties.Sport?.select?.name;
+                const sportColor = honoree.properties.Sport?.select?.color;
+                const year = honoree.properties.Year?.select?.name;
+                const yearColor = honoree.properties.Year?.select?.color;
+                const image =
+                  honoree.properties?.Profile_Image?.rich_text[0]?.href;
 
-                                        <Flex direction="column" justify="center" p={3}>
-                                            <Heading as="h3" size="md" alignSelf="center">
-                                                {honoree.properties.Name.title[0].text?.content}
-                                            </Heading>
-                                            <Text alignSelf="start" fontSize="sm">
-                                                {honoree.properties.Year.select.name}
-                                            </Text>
-                                            {/*{renderSportsArray()}*/}
-                                        </Flex>
-                                    </Box>
-                                </a>
-                            )
-                        })}
+                return (
+                  <a key={hId} href={`/honorees/${hId}`}>
+                    <Box borderWidth="0px" overflow="hidden">
+                      <Flex
+                        direction="column"
+                        justify="center"
+                        h={450}
+                        p={0}
+                        bg="#fbeeca"
+                      >
+                        {image && (
+                          <AspectRatio
+                            ratio={4 / 3}
+                            mb={[2, 4]}
+                            overflow="hidden"
+                            borderRadius="lg"
+                            height={375}
+                          >
+                            <Image
+                              src={image}
+                              alt={
+                                honoree.properties.Name.title[0].text?.content
+                              }
+                              layout="fill"
+                              objectFit="cover"
+                            />
+                          </AspectRatio>
+                        )}
+                        <Heading
+                          as="h3"
+                          size="lg"
+                          alignSelf="center"
+                          mt={[2]}
+                          mb={[4]}
+                          w={`75%`}
+                          textAlign="center"
+                          color="#241c15"
+                        >
+                          {honoree.properties.Name.title[0].text?.content}
+                        </Heading>
 
-                    </SimpleGrid>
-                </Box>
-            </Container>
-
-        </MainLayout>
+                        <Box d="flex" justifyContent="center">
+                          <Heading
+                            as="h4"
+                            size="sm"
+                            mb={[8]}
+                            alignSelf="center"
+                          >
+                            <a
+                              href={`/year/${year}`}
+                              style={{
+                                background: 'gold',
+                                padding: '3px 8px',
+                                color: 'rebeccapurple',
+                              }}
+                            >
+                              {year}
+                            </a>
+                          </Heading>
+                          <Heading
+                            as="h4"
+                            size="sm"
+                            mb={[8]}
+                            alignSelf="center"
+                          >
+                            <a
+                              href={`/sport/${sport}`}
+                              style={{
+                                background: `${sportColor}`,
+                                padding: '3px 8px',
+                                color: 'white',
+                              }}
+                            >
+                              {sport}
+                            </a>
+                          </Heading>
+                        </Box>
+                      </Flex>
+                    </Box>
+                  </a>
+                );
+              })}
+            </SimpleGrid>
+          </Box>
+        </Container>
+      </MainLayout>
     );
 }
 

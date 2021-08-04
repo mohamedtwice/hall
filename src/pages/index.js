@@ -52,10 +52,10 @@ export default function Home({ honorees }) {
             <SimpleGrid minChildWidth="250px" spacing="40px">
             {honorees.map((honoree, index) => {
               const hId = honoree.id;
-              const slug = honoree.properties.slug.rich_text[0].text.content;
-              const sport = honoree.properties.Sport.select.name;
-              const sportColor = honoree.properties.Sport.select?.color;
-              const year = honoree.properties.Year?.select.name;
+              const slug = honoree.properties.slug?.rich_text[0]?.text?.content;
+              const sport = honoree.properties.Sport?.select?.name;
+              const sportColor = honoree.properties.Sport?.select?.color;
+              const year = honoree.properties.Year?.select?.name;
               const yearColor = honoree.properties.Year?.select?.color;
               const image = honoree.properties?.Profile_Image?.rich_text[0]?.href;
 
@@ -113,7 +113,7 @@ export default function Home({ honorees }) {
                         </Heading>
                         <Heading as="h4" size="sm" mb={[8]} alignSelf="center">
                           <a
-                            href={`/year/${sport}`}
+                            href={`/sport/${sport}`}
                             style={{
                               background: `${sportColor}`,
                               padding: '3px 8px',
