@@ -138,7 +138,7 @@ const TextRenderer = ({ content, plain }) => {
     }
 
     return (
-      <Text
+      <Text fontSize={['l', 'xl', '2xl']}
         key={index}
         as="span"
         {...resolveTextProps(
@@ -155,7 +155,7 @@ const TextRenderer = ({ content, plain }) => {
     );
   });
 
-  return <Text as={plain ? 'span' : 'p'}>{renderSpans}</Text>;
+  return <Text fontSize={['l', 'xl', '2xl']} as={plain ? 'span' : 'p'}>{renderSpans}</Text>;
 };
 
 export default TextRenderer;
