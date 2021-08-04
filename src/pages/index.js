@@ -74,7 +74,7 @@ export default function Home({ honorees }) {
                           ratio={4 / 3}
                           mb={[2, 4]}
                           overflow="hidden"
-                          borderRadius="lg"
+                          borderTopRadius="lg"
                           height={375}
                         >
                           <Image

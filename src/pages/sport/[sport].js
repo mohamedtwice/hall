@@ -100,7 +100,7 @@ export default function Year({ honorees, sport }) {
                             ratio={4 / 3}
                             mb={[2, 4]}
                             overflow="hidden"
-                            borderRadius="lg"
+                            borderTopRadius="lg"
                             height={375}
                           >
                             <Image

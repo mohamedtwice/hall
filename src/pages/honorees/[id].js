@@ -126,7 +126,7 @@ console.log(sport)
               <Text fontSize={['l', 'xl', '2xl']}>Sport:</Text>
               <Text>
                 <Link
-                  href={`/year/${year}`}
+                  href={`/sport/${sport}`}
                   className={`${honoree.pageInfo.properties.Year.select.color}-color`}
                   ml={4}
                   py={0}
