@@ -190,7 +190,6 @@ console.log(sport)
             d="flex"
             flexDirection="column"
             alignItems="baseline"
-            bg="#fff"
             p={[4, 10, 20]}
             mb={[4, 8, 20]}
           >
