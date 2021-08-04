@@ -190,9 +190,9 @@ console.log(sport)
             d="flex"
             flexDirection="column"
             alignItems="baseline"
-            bg="#f2f2f2"
+            bg="#fff"
             p={[4, 10, 20]}
-            mb={[4, 8]}
+            mb={[4, 8, 20]}
           >
             <Blocks blocks={blocks} />
 </Box>
