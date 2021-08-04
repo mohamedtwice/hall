@@ -63,12 +63,7 @@ console.log(sport)
       </Head>
 
       {image && (
-        <AspectRatio
-          ratio={16 / 9}
-          mb={[4, 8]}
-          overflow="hidden"
-          height={450}
-        >
+        <AspectRatio ratio={16 / 9} mb={[4, 8]} overflow="hidden" height={450}>
           <Image
             src={image}
             alt={titleContent}
@@ -92,18 +87,24 @@ console.log(sport)
 
       {/* <Container maxW="container.md" px={[5, 6, 16]} pb={16}> */}
       <Container maxW="container.lg">
+        <Heading
+          as="h1"
+          mt={[8, 10, 12]}
+          mb={[4, 8, 12]}
+          alignSelf="start"
+          fontSize={['3xl', '5xl', '7xl']}
+        >
+          {titleContent}
+        </Heading>
         <SimpleGrid columns={[1, 2, 2]} spacing="40px">
-          <Box d="flex" flexDirection="column" alignItems="baseline">
-            <Heading
-              as="h1"
-              mt={[2,4,6]}
-              mb={[4,]}
-              alignSelf="start"
-              fontSize={['3xl', '5xl', '7xl']}
-            >
-              {titleContent}
-            </Heading>
-
+          <Box
+            d="flex"
+            flexDirection="column"
+            alignItems="baseline"
+            bg="#f2f2f2"
+            p={[4, 10, 20]}
+            mb={[4, 8]}
+          >
             <Box d="flex" justifyContent="center" alignItems="center" mb={1}>
               <Text fontSize={['l', 'xl', '2xl']}>Inducted:</Text>
               <Text>

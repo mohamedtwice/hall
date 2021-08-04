@@ -92,7 +92,7 @@ export default function Year({ honorees, year }) {
                         justify="center"
                         h={450}
                         p={0}
-                        bg="#fbeeca"
+                        bg="#f2f2f2"
                       >
                         {image && (
                           <AspectRatio

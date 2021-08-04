@@ -67,7 +67,7 @@ export default function Home({ honorees }) {
                       justify="center"
                       h={450}
                       p={0}
-                      bg="#fbeeca"
+                      bg="#f2f2f2"
                     >
                       {image && (
                         <AspectRatio
@@ -76,6 +76,7 @@ export default function Home({ honorees }) {
                           overflow="hidden"
                           borderTopRadius="lg"
                           height={375}
+                          bg="transparent"
                         >
                           <Image
                             src={image}
