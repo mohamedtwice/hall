@@ -71,7 +71,7 @@ const TextRenderer = ({ content, plain }) => {
       }
 
       return (
-        <Text fontSize={['xl', '2xl', '3xl']} as={plain ? 'span' : 'p'}>
+        <Text fontSize={['2xl', '3xl', '4xl']} as={plain ? 'span' : 'p'}>
           <Link
             href={text.link.url}
             target="_blank"
@@ -93,7 +93,8 @@ const TextRenderer = ({ content, plain }) => {
     }
 
     return (
-      <Text fontSize={['xl', '2xl', '3xl']}
+      <Text
+        fontSize={['2xl', '3xl', '4xl']}
         as={plain ? 'span' : 'p'}
         {...resolveTextProps(
           bold,
@@ -138,7 +139,8 @@ const TextRenderer = ({ content, plain }) => {
     }
 
     return (
-      <Text fontSize={['xl', '2xl', '3xl']}
+      <Text
+        fontSize={['2xl', '3xl', '4xl']}
         key={index}
         as="span"
         {...resolveTextProps(
@@ -155,7 +157,11 @@ const TextRenderer = ({ content, plain }) => {
     );
   });
 
-  return <Text fontSize={['xl', '2xl', '3xl']} as={plain ? 'span' : 'p'}>{renderSpans}</Text>;
+  return (
+    <Text fontSize={['2xl', '3xl', '4xl']} as={plain ? 'span' : 'p'}>
+      {renderSpans}
+    </Text>
+  );
 };
 
 export default TextRenderer;
