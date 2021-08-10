@@ -71,7 +71,7 @@ const TextRenderer = ({ content, plain }) => {
       }
 
       return (
-        <Text fontSize={['2xl', '3xl', '4xl']} as={plain ? 'span' : 'p'}>
+        <Text className="mb-4" fontSize={['2xl', '3xl', '4xl']} as={plain ? 'span' : 'p'}>
           <Link
             href={text.link.url}
             target="_blank"
@@ -94,7 +94,8 @@ const TextRenderer = ({ content, plain }) => {
 
     return (
       <Text
-        fontSize={['2xl', '3xl', '4xl']}
+        mb={[3, 6]}
+        fontSize={['2xl', '2xl', '3xl']}
         as={plain ? 'span' : 'p'}
         {...resolveTextProps(
           bold,
@@ -140,7 +141,8 @@ const TextRenderer = ({ content, plain }) => {
 
     return (
       <Text
-        fontSize={['2xl', '3xl', '4xl']}
+        mb={[3, 6]}
+        fontSize={['2xl', '2xl', '3xl']}
         key={index}
         as="span"
         {...resolveTextProps(
@@ -158,7 +160,7 @@ const TextRenderer = ({ content, plain }) => {
   });
 
   return (
-    <Text fontSize={['2xl', '3xl', '4xl']} as={plain ? 'span' : 'p'}>
+    <Text fontSize={['2xl', '2xl', '3xl']} as={plain ? 'span' : 'p'}>
       {renderSpans}
     </Text>
   );
