@@ -24,7 +24,7 @@ export const getHonoreeById = async (pageId) => {
   return { pageInfo: post, blocks: blocks.results };
 };
 
-export const getHonoreesBySlug = async (slug) => {
+export const getHonoreeBySlug = async (slug) => {
   const honoree = await notion.databases.query({
     database_id: databaseId,
     filter: {
@@ -39,7 +39,12 @@ export const getHonoreesBySlug = async (slug) => {
     },
   });
 
-  return { data: honoree };
+  const pageId = honoree.results[0].id;
+
+  const page = await notion.pages.retrieve({ page_id: pageId });
+  const blocks = await notion.blocks.children.list({ block_id: pageId });
+
+  return { pageInfo: page, blocks: blocks.results };
 };
 
 export const getHonoreesByYear = async (year) => {

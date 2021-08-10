@@ -60,7 +60,7 @@ export default function Home({ honorees }) {
               const image = honoree.properties?.Profile_Image?.rich_text[0]?.href;
 
               return (
-                <a key={hId} href={`/honorees/${hId}`}>
+                <a key={hId} href={`/honorees/${slug}`}>
                   <Box borderWidth="0px" overflow="hidden">
                     <Flex
                       direction="column"

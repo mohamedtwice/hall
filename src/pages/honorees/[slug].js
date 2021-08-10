@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { getHonorees, getHonoreeById } from '@/lib/notion';
+import { getHonorees, getHonoreeBySlug } from '@/lib/notion';
 import { AspectRatio, Container, Heading, SimpleGrid, Box, color, Link, Text } from '@chakra-ui/react';
 import { socialImage, url } from '@/lib/config';
 
@@ -194,14 +194,14 @@ export async function getStaticPaths() {
   const honorees = await getHonorees();
 
   const paths = honorees.data.map((honoree) => ({
-    params: { id: honoree.id },
+    params: { id: honoree.id, slug: honoree.properties.slug.rich_text[0].plain_text },
   }));
     // console.log(paths)
   return { paths, fallback: 'blocking' };
 }
 
 export async function getStaticProps({ params }) {
-  const honoree = await getHonoreeById(params.id);
+  const honoree = await getHonoreeBySlug(params.slug);
 
   return { props: { honoree }, revalidate: 30 };
 }
