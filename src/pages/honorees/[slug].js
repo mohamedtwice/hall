@@ -165,7 +165,7 @@ console.log(sport)
               </Box>
             )}
 
-            <Blocks blocks={blocks} />
+            
           </Box>
           <Box height="">
             {profileImage && (
@@ -185,6 +185,16 @@ console.log(sport)
             )}
           </Box>
         </SimpleGrid>
+
+<Box
+            d="flex"
+            flexDirection="column"
+            alignItems="baseline"
+            p={[4, 10, 20]}
+            mb={[4, 8, 20]}
+          >
+            <Blocks blocks={blocks} />
+</Box>
       </Container>
     </MainLayout>
   );
