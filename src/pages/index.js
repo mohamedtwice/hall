@@ -46,6 +46,12 @@ export default function Home({ honorees }) {
         <meta property="og:image" content={socialImage} />
       </Head>
 
+<Container maxW="container.lg" pb={16}>
+        <Box mb={[12, 16]}>
+<Text fontSize='xl'>The Texas Black Sports Hall of Fame is an effort to chronicle the contributions that African American Texans have made to the history of sports.</Text>
+</Box>
+      </Container>
+
       <Container maxW="container.lg" pb={16}>
         <Box mb={[12, 16]}>
 
